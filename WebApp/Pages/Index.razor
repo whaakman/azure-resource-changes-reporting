@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using Newtonsoft.Json
 
 <div>
     <h3 class="p-3 text-center">Detected Changes for resources with Tag "ReportChanges = true"</h3>
@@ -40,9 +39,11 @@
 @functions {
     // This code could probably live somewhere else :)
     
-    Changes obtainedChanges = new Changes();
+    private List<ChangeProperties> Changes = new List<ChangeProperties>();
+    Changes ChangeObject = new Changes();
+    protected override async Task OnInitializedAsync() => await GetChangeProperties();
+    private async Task GetChangeProperties() => Changes = await ChangeObject.GetChangeProperties();
     
-     List<ChangeProperties> Changes = obtainedChanges.GetChangeProperties();
 
     // Props to https://exceptionnotfound.net/exploring-blazor-by-making-an-html-table-sortable-in-net-core/
     // for the sort method

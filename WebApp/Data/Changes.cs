@@ -9,14 +9,7 @@ namespace ChangeHistoryWebApp
 
 public class Changes
 {
-    public List<ChangeProperties> x;
-    public Changes()
-    {
-        var x = new List<ChangeProperties>(){
-        };
-            
-    }
-    public async Task<List<ChangeProperties>> GetChangeProperties()
+     public async Task<List<ChangeProperties>> GetChangeProperties()
     {
 
     string azureFunctionAddress = Environment.GetEnvironmentVariable("AzureFunctionAddress");
