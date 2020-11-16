@@ -1,0 +1,73 @@
+﻿@page "/"
+@using Newtonsoft.Json
+
+<div>
+    <h3 class="p-3 text-center">Detected Changes for resources with Tag "ReportChanges = true"</h3>
+    <h3 class="p-3 text-center">Changes go 14 days back</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Resource ID</th>
+                <th>Changed Property</th>
+                <th>Before Value</th>
+                <th>After Value</th>
+                <th>Change Category</th>
+                <th><span class="sort-link" @onclick=@(() => SortTable("Timestamp"))>Timestamp</span></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var change in Changes)
+            {
+            
+                if (String.IsNullOrEmpty(change.BeforeValue))
+                {
+                    change.BeforeValue = "New setting";
+                }
+                <tr>
+                    <td>@change.ResourceId</td>
+                    <td>@change.PropertyName</td>
+                    <td>@change.BeforeValue</td>
+                    <td>@change.AfterValue</td>
+                    <td>@change.ChangeCategory</td>
+                    <td>@change.Timestamp</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@functions {
+    // This code could probably live somewhere else :)
+    
+    Changes obtainedChanges = new Changes();
+    
+     List<ChangeProperties> Changes = obtainedChanges.GetChangeProperties();
+
+    // Props to https://exceptionnotfound.net/exploring-blazor-by-making-an-html-table-sortable-in-net-core/
+    // for the sort method
+
+    private bool IsSortedAscending;
+    private string CurrentSortColumn;
+    private void SortTable(string columnName)
+    {
+        if(columnName != CurrentSortColumn)
+        {
+            Changes = Changes.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+            CurrentSortColumn = columnName;
+            IsSortedAscending = true;
+        }
+        else
+        {
+            if(IsSortedAscending)
+            {
+                Changes = Changes.OrderByDescending(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+            }
+            else
+            {
+                Changes = Changes.OrderBy(x => x.GetType().GetProperty(columnName).GetValue(x, null)).ToList();
+            }
+            IsSortedAscending = !IsSortedAscending;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "R1xqcKnBbCRzEHapH7BXtYBPWBz2K7q+SHt1sFxrlgxFXJGmHem9LS6lqRu//PFR7AW3mFPlVQeqOy8aDcikZg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Wesley\\OneDrive\\Code\\Azure\\hobby\\ChangeHistory\\WebApp\\ChangeHistoryWebApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Wesley\\.nuget\\packages\\blazortable\\1.13.1\\blazortable.1.13.1.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\linqkit.core\\1.1.17\\linqkit.core.1.1.17.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.8\\microsoft.aspnetcore.authorization.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.8\\microsoft.aspnetcore.components.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.8\\microsoft.aspnetcore.components.analyzers.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.8\\microsoft.aspnetcore.components.forms.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.8\\microsoft.aspnetcore.components.web.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.8\\microsoft.aspnetcore.metadata.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.8\\microsoft.extensions.dependencyinjection.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.8\\microsoft.extensions.dependencyinjection.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.8\\microsoft.extensions.logging.abstractions.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\microsoft.jsinterop\\3.1.8\\microsoft.jsinterop.3.1.8.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
+    "C:\\Users\\Wesley\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
