@@ -1,24 +1,27 @@
 ﻿@page "/"
 
+
 <div>
     <h3 class="p-3 text-center">Detected Changes for resources with Tag "ReportChanges = true"</h3>
     <h3 class="p-3 text-center">Changes go 14 days back</h3>
+    </div>
+<br />
+    <div>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Resource ID</th>
+                <th><span class="sort-link" @onclick=@(() => SortTable("ResourceId"))>ResourceId</span></th>
                 <th>Changed Property</th>
                 <th>Before Value</th>
                 <th>After Value</th>
                 <th>Change Category</th>
                 <th><span class="sort-link" @onclick=@(() => SortTable("Timestamp"))>Timestamp</span></th>
-                
             </tr>
         </thead>
         <tbody>
+            
             @foreach (var change in Changes)
             {
-            
                 if (String.IsNullOrEmpty(change.BeforeValue))
                 {
                     change.BeforeValue = "New setting";
@@ -36,15 +39,19 @@
     </table>
 </div>
 
-@functions {
+
+@code {
     // This code could probably live somewhere else :)
+    
+    // added subscription model to later be able to change subscriptions
+    private SubscriptionModel subscriptionModel = new SubscriptionModel();
     
     private List<ChangeProperties> Changes = new List<ChangeProperties>();
     Changes ChangeObject = new Changes();
+   
     protected override async Task OnInitializedAsync() => await GetChangeProperties();
-    private async Task GetChangeProperties() => Changes = await ChangeObject.GetChangeProperties();
+    private async Task GetChangeProperties() => Changes = await ChangeObject.GetChangeProperties(subscriptionModel.Id);
     
-
     // Props to https://exceptionnotfound.net/exploring-blazor-by-making-an-html-table-sortable-in-net-core/
     // for the sort method
 

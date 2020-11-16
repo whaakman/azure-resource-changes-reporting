@@ -7,20 +7,18 @@ using Newtonsoft.Json;
 namespace ChangeHistoryWebApp
 {
 
-public class Changes
-{
-     public async Task<List<ChangeProperties>> GetChangeProperties()
+    public class Changes
     {
+        public async Task<List<ChangeProperties>> GetChangeProperties(string subscriptionId)
+        {
+        string azureFunctionAddress = Environment.GetEnvironmentVariable("AzureFunctionAddress");
+        //string subscriptionId = "69dc95d8-087e-4810-910e-526a1844217b";
+        HttpClient client = new HttpClient();
+        HttpResponseMessage response = await client.GetAsync(azureFunctionAddress + subscriptionId);
 
-    string azureFunctionAddress = Environment.GetEnvironmentVariable("AzureFunctionAddress");
-    string subscriptionId = "69dc95d8-087e-4810-910e-526a1844217b";
-    HttpClient client = new HttpClient();
-    HttpResponseMessage response = await client.GetAsync(azureFunctionAddress + subscriptionId);
-
-     var detectedChanges = JsonConvert.DeserializeObject<List<ChangeProperties>>(
-        await response.Content.ReadAsStringAsync());
-        return detectedChanges;
+        var detectedChanges = JsonConvert.DeserializeObject<List<ChangeProperties>>(
+            await response.Content.ReadAsStringAsync());
+            return detectedChanges;
+        }
     }
-}
-
 }
