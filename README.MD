@@ -1,5 +1,6 @@
 
 # Azure Resource Change Reports
+![alt text](ChangeHistory.png)
 This App leverages the Resource Changes API (https://docs.microsoft.com/en-us/azure/governance/resource-graph/how-to/get-resource-changes)
 
 Even though the API is still in preview and note all resources report a change, it's still fun to play with and gives you a good insight in what's hapenning in your Azure Subscription. 
