@@ -14,7 +14,7 @@ namespace ChangeHistory
    
     public static async Task<List<ChangeProperties>> GetChanges(string token, string subscriptionId)
         {
-            // 
+            // Get the HTTP Client
             var httpClient = await APICall.HTTPClient();
             List<ChangeProperties> ChangeProperties = new List<ChangeProperties>();
 
@@ -40,12 +40,12 @@ namespace ChangeHistory
                 var HttpsResponse = await responsePost.Content.ReadAsStringAsync();
 
                 // Store values in List
-                Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(HttpsResponse);
+                Root DeserializedClass = JsonConvert.DeserializeObject<Root>(HttpsResponse);
 
                 // Foreach detected change get the changed properties object and filter out "System"
                 // Currently only interested in changes made by users
 
-                foreach (var detectedChange in myDeserializedClass.Changes)
+                foreach (var detectedChange in DeserializedClass.Changes)
                 {
                     foreach (var propertyChange in detectedChange.PropertyChanges)
                     {
