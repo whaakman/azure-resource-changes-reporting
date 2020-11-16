@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.Azure.Services.AppAuthentication;
 using Newtonsoft.Json;
@@ -75,6 +73,8 @@ namespace ChangeHistory
             HttpResponseMessage responsePost = await httpClient.GetAsync(URI);
             var HttpsResponse = await responsePost.Content.ReadAsStringAsync();
 
+            // Want to use a normal object for this as well and create a list, however this is troublesome as the returned json
+            // Is not always the same. LINQ seems to do the trick.
             // Parse resourceIds in JObject
             JObject results = JObject.Parse(HttpsResponse);
 
@@ -82,6 +82,7 @@ namespace ChangeHistory
             var resourceIds =
                     from id in results["value"]
                     select (string)id["id"];    
+            
 
             List<string> resourceIdsList = new List<string>();
             foreach (string item in resourceIds )

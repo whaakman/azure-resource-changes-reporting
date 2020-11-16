@@ -12,9 +12,9 @@ namespace ChangeHistoryWebApp
         public async Task<List<ChangeProperties>> GetChangeProperties(string subscriptionId)
         {
         string azureFunctionAddress = Environment.GetEnvironmentVariable("AzureFunctionAddress");
-        //string subscriptionId = "69dc95d8-087e-4810-910e-526a1844217b";
         HttpClient client = new HttpClient();
-        HttpResponseMessage response = await client.GetAsync(azureFunctionAddress + subscriptionId);
+        string URI = $"{azureFunctionAddress}&subscriptionId={subscriptionId}";
+        HttpResponseMessage response = await client.GetAsync(URI);
 
         var detectedChanges = JsonConvert.DeserializeObject<List<ChangeProperties>>(
             await response.Content.ReadAsStringAsync());
