@@ -54,7 +54,7 @@ namespace ChangeHistory
         public string ChangeType { get; set; } 
     }
 
-    public class Root    {
+    public class RootChanges    {
         [JsonPropertyName("changes")]
         public List<Change> Changes { get; set; } 
     }

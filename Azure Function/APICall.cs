@@ -40,7 +40,7 @@ namespace ChangeHistory
                 var HttpsResponse = await responsePost.Content.ReadAsStringAsync();
 
                 // Store values in List
-                Root DeserializedClass = JsonConvert.DeserializeObject<Root>(HttpsResponse);
+                RootChanges DeserializedClass = JsonConvert.DeserializeObject<RootChanges>(HttpsResponse);
 
                 // Foreach detected change get the changed properties object and filter out "System"
                 // Currently only interested in changes made by users
