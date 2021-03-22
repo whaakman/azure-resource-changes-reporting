@@ -23,6 +23,6 @@ Currently working on implementing a database solution for long term storage and 
 - Azure App Service (Windows, .Net Core)
 - App Settings configured:
     - "AzureFunctionAddress" with value "https://[YOURFUNCTIONAPP].azurewebsites.net/api/GetResourceChanges?code=[FUNCTIONKEY]"
-    - "subscriptionID" with value: [YOURSUBID]
+    - "subscriptionID" with value: [YOURSUBSCRIPTIONID]
 
 Deploy the App (from VS Code for example) and go take a look :)
